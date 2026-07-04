@@ -1,0 +1,16 @@
+services:
+  eventsdb:
+    image: postgres:16
+    container_name: eventsdb-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: eventsdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - eventsdb_data:/var/lib/postgresql/data
+
+volumes:
+  eventsdb_data:
